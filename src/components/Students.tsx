@@ -10,7 +10,7 @@ const StudenLibrary: React.FC = () => {
   
       <div className="flex flex-col justify-center gap-1 items-center rounded-xl bg-gray-200">
         <h1 className="font-bold text-black/80 border-X-b-2">Student Bibloteket!</h1>
-        <ul className="flex flex-col justify-start w-[180px] h-[280px] bg-blue-200 items-center 
+        <ul className="flex flex-row justify-start w-[180px] h-[280px] bg-blue-200 items-center 
          cursor-pointer ">
           {students.map((student) => (
             <li 
