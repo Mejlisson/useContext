@@ -1,50 +1,25 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+TODO:S
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Add more inputs to the student form.
+Add a delete function in global state using the existing provider.
 
-## Expanding the ESLint configuration
+The cards needs some work, we want to be able to assign styles to each input value we have i.e name, lastname and so on.
+Change the behaviour of the container or parent of the cards so it can hold 4 cards side by side, then after 4 it should automatically 
+jump down to a new row.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Can we make a card "expand" on click ?
+And if so, can we then add some more features there?  
+As of now the card image is hardcoded, think of a way we can change that, maybe put a bunch of images into an array then using a dropdown to choose an image? 
 
-- Configure the top-level `parserOptions` property like this:
+Also fiddle with the design as a whole, change position of the the form.
+Change colors, fonts, borders, sizes and so on.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Make it yours!
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Please Observe!
+THIS IS USING TAILWIND!
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Have fun!
