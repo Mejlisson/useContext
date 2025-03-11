@@ -4,7 +4,6 @@ import { useStudent } from "../StudentProvider";
 const monkeyImage = "../src/monkyMonk.jpg";
 const StudenLibrary: React.FC = () => {
   const { students } = useStudent();
-  const { deleteStudent } = useStudent();
 
 
   return (
@@ -16,15 +15,13 @@ const StudenLibrary: React.FC = () => {
           {students.map((student) => (
             <li 
             className="hover:bg-blue-300 font-bold text-black/80 border-b-2"
-            onClick={() => deleteStudent(student.id)}
             key={student.id}>
+              {/* VAD HÄNDER HÄR ? Vi vill kunna lägga stil på dessa, hur gör vi då? */}
               Name: {student.firstName}
               <br />
               Lastname: {student.lastName}
               <br />
-              Utbildning: {student.utbildning}
-              <br />
-              Ålder: {student.age}
+    
               <div>
                 <img src={monkeyImage} alt="monkey" className="w-20 h-20" />
               </div>

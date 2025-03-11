@@ -1,26 +1,24 @@
 import { useStudent } from '../StudentProvider';
-
-
+import { FormEvent } from 'react';
 
 
 const Form = () => {
   const { addStudent } = useStudent();
-  const handleSubmit = (e: any) => {
+  
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = e.target;
+    const form = e.target as HTMLFormElement;
     const data = new FormData(form);
     const firstName = data.get("firstName") as string;
     const lastName = data.get("lastName") as string;
-    const utbildning = data.get("utbildning") as string;
-    const age = data.get("age") as string;
-    console.log(firstName, lastName, utbildning);
+
+    
 
     const newStudent = {
       id: Date.now(),
       firstName,
       lastName,
-      utbildning,
-      age
+     
     };
 
     addStudent(newStudent);
@@ -44,18 +42,7 @@ const Form = () => {
               name="lastName" 
               required
       />
-      <input type="text" 
-              className="border-2 border-gray-200"
-              placeholder="Utbildning" 
-              name="utbildning" 
-              required
-      />
-      <input type="text" 
-              className="border-2 border-gray-200"
-              placeholder="Ålder" 
-              name="age" 
-              required
-      />
+  
       <button 
       className="bg-blue-500 mt-20 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
       type="submit">Lägg till</button>

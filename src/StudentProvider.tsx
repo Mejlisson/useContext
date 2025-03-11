@@ -4,14 +4,12 @@ interface Student {
   id: number;
   firstName: string;
   lastName: string;
-  utbildning: string;
-  age: string;
+
 }
 
 interface StudentProviderProps {
   students: Student[];
   addStudent: (student: Student) => void;
-  deleteStudent: (id: number) => void;
 }
 
 const StudentContext = createContext<StudentProviderProps | undefined>(undefined);
@@ -23,12 +21,10 @@ export const StudentProvider: React.FC<{ children: React.ReactNode }> = ({ child
     setStudents((prevStudents) => [...prevStudents, student]);
   };
 
-  const deleteStudent = (id: number) => {
-    setStudents((prevStudents) => prevStudents.filter((student) => student.id !==id))
-  }
+
 
   return (
-    <StudentContext.Provider value={{ students, addStudent, deleteStudent }}>
+    <StudentContext.Provider value={{ students, addStudent }}>
       {children}
     </StudentContext.Provider>
 
