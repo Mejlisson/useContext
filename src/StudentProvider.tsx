@@ -4,9 +4,11 @@ interface Student {
   id: number;
   firstName: string;
   lastName: string;
+  age: string;
+  education: string;
+  color: string;
 
 }
-
 interface StudentProviderProps {
   students: Student[];
   addStudent: (student: Student) => void;
@@ -21,13 +23,12 @@ export const StudentProvider: React.FC<{ children: React.ReactNode }> = ({ child
     setStudents((prevStudents) => [...prevStudents, student]);
   };
 
-
-
   return (
+    <div className="flex flex-row">
     <StudentContext.Provider value={{ students, addStudent }}>
       {children}
     </StudentContext.Provider>
-
+    </div>
   );
 };
 
