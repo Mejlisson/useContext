@@ -1,10 +1,12 @@
 import { useStudent } from '../StudentProvider';
-import { FormEvent } from 'react';
+import { FormEvent, useState } from 'react';
+import MonsterColor from './monsterColors';
 
 
 const Form = () => {
   const { addStudent } = useStudent();
-  
+  const [selectedColor, setSelectedColor] = useState("");
+ 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
@@ -15,7 +17,10 @@ const Form = () => {
     const education =data.get("education") as string;
     const color = data.get("color") as string;
 
-  
+
+    //matchar bilden med vald färg
+    const image = MonsterColor[color] || MonsterColor["red"]; // Default-bild om ingen färg matchas
+
     const newStudent = {
       id: Date.now(),
       firstName,
@@ -23,6 +28,7 @@ const Form = () => {
       age,
       education,
       color,
+      image
     };
 
     addStudent(newStudent);
@@ -31,7 +37,7 @@ const Form = () => {
 
   return (
    
-    <form className="flex flex-col justify-center w-[250px] h-[350px] rounded-lg bg-blue-300 gap-2 p-4 m-3"
+    <form className="flex flex-col justify-center w-[280px] h-[400px] rounded-lg bg-blue-300 gap-2 p-4 m-3 "
           onSubmit={handleSubmit}>
       <h1>Lägg till Student</h1>
       <input type="text" 
@@ -60,21 +66,20 @@ const Form = () => {
       />
      <select 
         name="color" 
-        className="border-2 border-gray-200 bg-white/80 text-black p-1" 
+        className="border-2 border-gray-200 bg-white/80 text-black p-1 mt-5" 
         required
+        onChange={(e) => setSelectedColor(e.target.value)}
       >
         <option value="">Välj en färg</option>
-        <option value="röd">Röd</option>
-        <option value="blå">Blå</option>
-        <option value="grön">Grön</option>
-        <option value="gul">Gul</option>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+        <option value="yellow">Yellow</option>
         <option value="orange">Orange</option>
-        <option value="lila">Lila</option>
-        <option value="gul">Gul</option>
+        <option value="purple">Purple</option>
       </select>
-  
       <button 
-      className="bg-blue-500 mt-20 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      className="bg-blue-500 mt-5 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
       type="submit">Lägg till</button>
     </form>
   
