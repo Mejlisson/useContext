@@ -7,11 +7,12 @@ interface Student {
   age: string;
   education: string;
   color: string;
-
 }
+
 interface StudentProviderProps {
   students: Student[];
   addStudent: (student: Student) => void;
+  setStudents: React.Dispatch<React.SetStateAction<Student[]>>; 
 }
 
 const StudentContext = createContext<StudentProviderProps | undefined>(undefined);
@@ -25,7 +26,7 @@ export const StudentProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
   return (
     <div className="flex flex-row">
-    <StudentContext.Provider value={{ students, addStudent }}>
+    <StudentContext.Provider value={{ students, addStudent, setStudents }}> 
       {children}
     </StudentContext.Provider>
     </div>

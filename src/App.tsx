@@ -6,11 +6,12 @@ import StudenLibrary from "./components/Students";
 
 function App() {
   return (
+    <div className="flex flex-row">
       <StudentProvider>
         <Form />
         <StudenLibrary />
       </StudentProvider>
-
+    </div>
   )
 }
 
